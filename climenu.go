@@ -53,6 +53,12 @@ func NewButtonMenu(heading string, question string) *ButtonMenu {
 	}
 }
 
+func NewEmptyButtonMenu() *ButtonMenu {
+	return &ButtonMenu{
+		Menu: *NewMenu("", "", ButtonType),
+	}
+}
+
 func NewCheckboxMenu(heading string, question string, yes string, no string) *CheckboxMenu {
 	return &CheckboxMenu{
 		Menu: *NewMenu(heading, question, CheckboxType),
