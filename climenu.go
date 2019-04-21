@@ -12,7 +12,7 @@ type MenuItem struct {
 	Text     string
 	ID       string
 	SubMenu  *Menu
-	Selected bool  // For checkboxes.
+	Selected bool // For checkboxes.
 }
 
 const (
@@ -119,7 +119,7 @@ func (m *Menu) DrawMenuItems(redraw bool) {
 
 		prefix := "  "
 		if m.Type == ButtonType {
-			prefix = fmt.Sprintf("%d: ", index + 1)
+			prefix = fmt.Sprintf("%d: ", index+1)
 		} else if m.Type == CheckboxType {
 			if menuItem.Selected {
 				prefix = "\u25c9 "
@@ -141,8 +141,6 @@ func (m *Menu) Render() {
 	if m.Heading != "" {
 		fmt.Println(m.Heading)
 	}
-
-	fmt.Printf("%s\n", goterm.Color(goterm.Bold(m.Question) + ":", goterm.GREEN))
 
 	m.DrawMenuItems(false)
 
